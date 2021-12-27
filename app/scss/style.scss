@@ -79,7 +79,186 @@
     color: $white;
   }
   
+}
 
+.features {
+  padding: 100px 0 75px;
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+  }
+
+  &__item {
+    width: 33.3%;
+    margin-bottom: 25px;
+    padding: 0 30px;
+    text-align: center;
+
+    &::before {
+      content: '';
+      display: block;
+      margin:0 auto 25px;
+      width: 65px;
+      height: 65px;
+    }
+
+  }
+
+  &__item--featur-1::before {
+    background: url(../images/features/faetur-1.png) center / contain no-repeat;
+    }
+
+  &__item--featur-2::before {
+    background: url(../images/features/faetur-2.png) center / contain no-repeat;
+    }
+
+  &__item--featur-3::before {
+    background: url(../images/features/faetur-3.png) center / contain no-repeat;
+  }
+
+  &__item--featur-4::before {
+    background: url(../images/features/faetur-4.png) center / contain no-repeat;
+  }
+
+  &__item--featur-5::before {
+    background: url(../images/features/faetur-5.png) center / contain no-repeat;
+  }
+
+  &__item--featur-6::before {
+    background: url(../images/features/faetur-6.png) center / contain no-repeat;
+  }
+  
+  &__title {
+    margin-bottom: 25px;
+    color: $title;
+    @extend %raleway-700;
+    text-transform: uppercase;
+  }
+}
+
+.works {
+  &__items {
+    display: flex;
+    flex-wrap: wrap
+  }
+
+  &__item {
+    position: relative;
+    width: 25%;
+    height: 350px;
+    border-right: 1px solid $white;
+    border-bottom: 1px solid $white;
+    overflow: hidden;
+    &:hover .works__content {
+      opacity: 1;
+    }
+  }
+  
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 1;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(232, 69, 69, .9);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &__name {
+    color: $white;
+    text-transform: uppercase;
+    @extend %raleway-700;
+  }
+
+  &__text {
+    color: $white;
+  }
+}
+
+.team {
+  padding: 100px 0 70px;
+
+  &__items {
+    display: flex;
+    margin: 0 -15px 30px;
+  }
+
+  &__item {
+    width: 25%;
+    padding: 0 15px;
+  }
+
+  &__img {
+    margin-bottom: 20px;
+  }
+
+  &__name {
+    margin-bottom: 8px;
+    font-size: 22px;
+    color: $title;
+    font-weight: 400;
+  }
+
+  &__position {
+    margin-bottom: 15px;
+    color: $accent;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+  }
+
+  .social {
+    display: flex;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      margin-right: 5px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid $default;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: $default;
+        .social__icon {
+          fill: $accent;
+        }
+      }
+    }
+
+    &__icon {
+      transition: fill 0.3s;
+      height: 18px;
+      fill: $default;
+    }
+  }
+}
+
+.testimonials {
+  background-color: #53354a;
+  overflow: hidden;
+
+  &__item {
+    display: flex;
+  }
 }
 
 
