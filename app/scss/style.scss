@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
 
 .header {
@@ -223,32 +224,34 @@
   &__text {
     margin-bottom: 20px;
   }
+}
 
-  .social {
+.social {
+  display: flex;
+
+  &__item {
     display: flex;
+    align-items: center;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $default;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 
-    &__item {
-      display: flex;
-      align-items: center;
-      margin-right: 5px;
-      width: 40px;
-      height: 40px;
-      border: 1px solid $default;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-      &:hover {
-        background-color: $default;
-        .social__icon {
-          fill: $accent;
-        }
+    &:hover {
+      background-color: $default;
+
+      .social__icon {
+        fill: $accent;
       }
     }
+  }
 
-    &__icon {
-      transition: fill 0.3s;
-      height: 18px;
-      fill: $default;
-    }
+  &__icon {
+    transition: fill 0.3s;
+    height: 18px;
+    fill: $default;
   }
 }
 
@@ -256,10 +259,166 @@
   background-color: #53354a;
   overflow: hidden;
 
+  &__items {
+    height: 500px;
+    overflow: hidden;
+  }
+
   &__item {
+    display: flex !important;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+
+  &__photo {
+    position: relative;
+    width: 50%;
+    height: 500px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    object-fit: cover;
+  }
+
+  &__content {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding-left: 50px;
+  }
+
+  &__text {
+    margin-bottom: 25px;
+    @extend %cardo-400;
+    font-size: 36px;
+    line-height: 45px;
+    color: $white;
+  }
+
+  &__author {
+    @extend %cardo-400;
+    text-transform: uppercase;
+    color: $white;
+    font-weight: 700;
+  }
+
+  .slick-dots {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding-bottom: 10px;
+    margin-right: 70px;
+    li {
+      margin: 0 5px;
+    }
+
+    button {
+      font-size: 0;
+      color: transparent;
+      background-color: #fff;
+      opacity: 0.7;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+
+    & .slick-active {
+      button {
+        opacity: 1;
+      }
+    }
   }
 }
+
+.download {
+  padding: 90px 0;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 15px;
+    color: $title;
+    font-size: 28px;
+    font-weight: normal;
+  }
+
+  &__text {
+    margin-bottom: 35px;
+    @extend %raleway-700;
+    color: $title;
+    text-transform: uppercase;
+  }
+
+  .btn--download {
+    padding: 15px 60px;
+  }
+}
+
+.footer {
+  background-color: #3a3e64;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 70px 0;
+    color: $white;
+  }
+
+  &__item {
+    width: 33.3333%;
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  & .social--footer {
+    justify-content: center;
+
+    .social__item {
+      border: 1px solid $white;
+    }
+
+    .social__item:hover {
+      background-color: $white;
+      .social__icon {
+        fill: $accent;
+      }
+    }
+
+    .social__icon {
+      fill: $white;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  .copyright {
+    background-color: #313454;
+    padding: 20px 0;
+    text-align: center;
+
+    &__text {
+      color: $white;
+    }
+  }
+}
+
 
 
 
