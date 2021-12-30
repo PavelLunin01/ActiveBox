@@ -12,6 +12,17 @@
   width: 100%;
   height: 100px;
 
+  &.fixed {
+    position: fixed;
+    background-color: #31344e;
+    height: auto;
+
+    .header__inner {
+      padding: 20px 0;
+      border-bottom: none;
+    }
+  }
+
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -68,7 +79,7 @@
     margin-bottom: 30px;
     @extend %raleway-700;
     font-size: 65px;
-    line-height: 70px;
+    line-height: 1.1;
     color: $white;
     text-transform: uppercase;
   }
@@ -76,10 +87,43 @@
   &__subtitle {
     margin-bottom: 60px;
     font-size: 22px;
-    line-height: 30px;
+    line-height: 1.1;
     color: $white;
   }
-  
+}
+
+.burger {
+  display: none;
+  padding: 9px 2px;
+
+  &__item {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 3px;
+    font-size: 0;
+    color: transparent;
+    background-color: $white;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $white;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      bottom: -8px;
+    }
+  }
 }
 
 .features {
@@ -163,6 +207,7 @@
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
     z-index: 1;
+    min-width: 100%;
   }
 
   &__content {
@@ -197,6 +242,7 @@
 
   &__items {
     display: flex;
+    flex-wrap: wrap;
     margin: 0 -15px 30px;
   }
 
@@ -257,33 +303,26 @@
 
 .testimonials {
   background-color: #53354a;
-  overflow: hidden;
+  
 
-  &__items {
+  &__items  {
     height: 500px;
     overflow: hidden;
+    &.slick-initialized {
+      height: auto;
+    }
   }
 
   &__item {
     display: flex !important;
-    flex-wrap: wrap;
-    overflow: hidden;
-  }
-
-  &__photo {
-    position: relative;
-    width: 50%;
     height: 500px;
+    flex-wrap: wrap;
   }
 
   &__icon {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    z-index: 1;
-    transform: translateY(-50%);
-    object-fit: cover;
+    width: 50%;
   }
+
 
   &__content {
     display: flex;
@@ -297,7 +336,7 @@
     margin-bottom: 25px;
     @extend %cardo-400;
     font-size: 36px;
-    line-height: 45px;
+    line-height: 1.1;
     color: $white;
   }
 
@@ -305,7 +344,6 @@
     @extend %cardo-400;
     text-transform: uppercase;
     color: $white;
-    font-weight: 700;
   }
 
   .slick-dots {
@@ -317,7 +355,6 @@
     justify-content: center;
     width: 50%;
     padding-bottom: 10px;
-    margin-right: 70px;
     li {
       margin: 0 5px;
     }
@@ -418,19 +455,6 @@
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @import 'media';
 
